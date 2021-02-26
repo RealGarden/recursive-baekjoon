@@ -7,7 +7,6 @@ int main(void) {
 	print_binary(x);
 
 	return 0;
-
 }
 
 void print_binary(unsigned long long x){
@@ -16,5 +15,4 @@ void print_binary(unsigned long long x){
 		print_binary(x / 2);
 		printf("%llu", x % 2);
 	}
-
 }

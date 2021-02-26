@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+
+char star[400][400];
+
+void PrintStar(int n);
+
+int main() {
+	
+	
+	int n; cin >> n;
+	int starLen = 4 * n - 3;
+	for (int i = 0;i < starLen;i++) {
+		for (int j = 0;j < starLen;j++)
+			star[i][j] = ' ';
+	}
+
+	PrintStar(n);
+
+	for (int i = 0;i < starLen;i++) {
+		for (int j = 0;j < starLen;j++)
+			cout << star[i][j];
+		cout << endl;
+	}
+		
+
+}
+
+void PrintStar(int n) {
+	
+	static int x = 0, y = 0; //좌표
+	int StarLen = 4 * n - 3;
+	if (n < 0)return;
+	for (int i = y;i < y + StarLen;i++) {//가로
+		star[y][i] = '*';
+		star[y+StarLen-1][i] = '*';
+	}
+
+	for (int j = x;j < x + StarLen;j++) {//세로
+		star[j][x] = '*';
+		star[j][x + StarLen-1] = '*';
+	}
+	
+
+	
+	x += 2; y += 2;
+
+	PrintStar(n - 1);
+	
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+void print_binary(unsigned long long x);
+
+int main(void) {
+    unsigned long long x;
+    scanf("%llu",&x);
+	print_binary(x);
+
+	return 0;
+
+}
+
+void print_binary(unsigned long long x){
+
+	if(x > 0) {
+		print_binary(x / 2);
+		printf("%llu", x % 2);
+	}
+
+}

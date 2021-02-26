@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+void star(int n, int cnt) {
+	for (int i = 0; i < cnt / 2; i++)
+		cout << "* ";
+
+	if (n < 2) {
+		cout << "*";
+		for (int i = 0; i < cnt / 2; i++) {
+			cout << " *";
+		}
+		return;
+	
+	}
+
+	if (cnt % 2 == 0)
+		for (int i = 0; i < n - 2; i++)
+			cout << " ";
+	else		
+		for (int i = 0; i < n; i++)
+			cout << "*";
+	
+	for (int i = 0; i < cnt / 2; i++) {
+		cout << " *";
+	}
+	cout << endl;
+	
+	star(n -  2, cnt+1);
+
+	cout << endl;
+	for (int i = 0; i < cnt / 2; i++) {
+		cout << "* ";
+	}
+	
+	if (cnt % 2 == 0)
+		for (int i = 0; i < n - 2; i++)
+			cout << " ";
+	else
+		for (int i = 0; i < n; i++)
+			cout << "*";
+
+	for (int i = 0; i < cnt / 2; i++) {
+		cout << " *";
+	}
+}
+
+int main() {
+	int N, cnt = 1;
+
+	cin >> N;
+	star(1 + (4 * (N - 1)), cnt);
+
+	return 0;
+}
